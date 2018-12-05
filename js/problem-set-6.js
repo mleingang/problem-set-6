@@ -38,7 +38,19 @@ function sayHello() {
  */
 
 function drawRectangle() {
+  let div = document.getElementById('exercise2');
 
+  const canvas = document.getElementById('canvas2');
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  let height = prompt("Enter a height.");
+  let width = prompt("Enter a width.");
+  let x = prompt("Enter an X-coordinate.");
+  let y = prompt("Enter a Y-coordinate.");
+
+  ctx.fillStyle = "none";
+  ctx.fillRect(x, y, height, width);
 }
 
 /*
