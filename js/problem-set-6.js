@@ -53,16 +53,16 @@ function drawRectangle() {
   let y;
 
   let canvas = document.getElementById('canvas2');
-  let ctx = canvas.getContext('2d');
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  do {
-    height = Number(prompt("Enter a height."));
-  } while (height < 1)
+  let rectangle = canvas.getContext('2d');
+  rectangle.clearRect(0, 0, canvas2.width, canvas2.height);
 
   do {
     width = Number(prompt("Enter a width."));
   } while (width < 1)
+
+  do {
+    height = Number(prompt("Enter a heigth."));
+  } while (height < 1)
 
   do {
     x = Number(prompt("Enter an X-coordinate."));
@@ -72,8 +72,8 @@ function drawRectangle() {
     y = Number(prompt("Enter a Y-coordinate."));
   } while (y < 5)
 
-  ctx.rect(x, y, height, width);
-  ctx.stroke();
+  rectangle.rect(x, y, width, height);
+  rectangle.stroke();
 }
 
 /*
@@ -102,6 +102,37 @@ function drawRectangle() {
  */
 
 function drawColoredRectangle() {
+  let div = document.getElementById("exercise3");
+
+  let chooseColor;
+
+  let canvas = document.getElementById("canvas3");
+  let colored = canvas.getContext("2d");
+  colored.clearRect(0, 0, canvas3.width, canvas3.height);
+
+  let chooseColor = prompt("Enter a color.");
+
+  if (chooseColor === "red"){
+    colored.fillStyle = "#ff0000";
+    colored.fillRect(10, 10, 100, 50);
+
+  } else if (chooseColor === "orange"){
+    colored.fillStyle = "#ffa500";
+    colored.fillRect(10, 10, 100, 50);
+
+  } else if (chooseColor === "yellow"){
+    colored.fillStyle = "#ffff00";
+    colored.fillRect(10, 10, 100, 50);
+
+  } else if (chooseColor === "green"){
+    colored.fillStyle = "#008000";
+    colored.fillRect(10, 10, 100, 50);
+
+  } else if (chooseColor === "blue"){
+    colored.fillStyle = "#0000ff";
+    colored.fillRect(10, 10, 100, 50);
+
+  }
 
 }
 
