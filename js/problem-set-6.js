@@ -11,6 +11,7 @@
  */
 
 function sayHello() {
+  let div = document.getElementById('exercise1');
 
 }
 
@@ -40,17 +41,33 @@ function sayHello() {
 function drawRectangle() {
   let div = document.getElementById('exercise2');
 
-  const canvas = document.getElementById('canvas2');
-  const ctx = canvas.getContext('2d');
+  let height;
+  let width;
+  let x;
+  let y;
+
+  let canvas = document.getElementById('canvas2');
+  let ctx = canvas.getContext('2d');
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  let height = prompt("Enter a height.");
-  let width = prompt("Enter a width.");
-  let x = prompt("Enter an X-coordinate.");
-  let y = prompt("Enter a Y-coordinate.");
+  do {
+    height = Number(prompt("Enter a height."));
+  } while (height < 1)
 
-  ctx.fillStyle = "none";
-  ctx.fillRect(x, y, height, width);
+  do {
+    width = Number(prompt("Enter a width."));
+  } while (width < 1)
+
+  do {
+    x = Number(prompt("Enter an X-coordinate."));
+  } while (x < 5)
+
+  do {
+    y = Number(prompt("Enter a Y-coordinate."));
+  } while (y < 5)
+
+  ctx.rect(x, y, height, width);
+  ctx.stroke();
 }
 
 /*
