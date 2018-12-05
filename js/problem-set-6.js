@@ -13,6 +13,12 @@
 function sayHello() {
   let div = document.getElementById('exercise1');
 
+  let canvas = document.getElementById("canvas1");
+  let hello = canvas.getContext('2d');
+
+  hello.font = "48px Sans-Serif";
+  hello.strokeText("Hello, World!", 10, 50);
+  stroke();
 }
 
 /*
