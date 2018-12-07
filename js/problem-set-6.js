@@ -104,8 +104,6 @@ function drawRectangle() {
 function drawColoredRectangle() {
   let div = document.getElementById("exercise3");
 
-  let chooseColor;
-
   let canvas = document.getElementById("canvas3");
   let colored = canvas.getContext("2d");
   colored.clearRect(0, 0, canvas3.width, canvas3.height);
@@ -132,6 +130,13 @@ function drawColoredRectangle() {
     colored.fillStyle = "#0000ff";
     colored.fillRect(10, 10, 100, 50);
 
+  } else if (chooseColor === "purple"){
+    colored.fillStyle = "#800080";
+    colored.fillRect(10, 10, 100, 50);
+
+  } else if (chooseColor === "black"){
+    colored.fillStyle = "#000000";
+    colored.fillRect(10, 10, 100, 50);
   }
 
 }
@@ -166,6 +171,21 @@ function drawColoredRectangle() {
  */
 
 function drawTriangle() {
+  let div = document.getElementById("exercise4");
+
+  let canvas = document.getElementById("canvas4");
+  let triangle = canvas.getContext("2d");
+  triangle.clearRect(0, 0, canvas4.width, canvas4.height);
+
+  let sides = [];
+
+  do {
+    input = Number(prompt("Enter your a side length."));
+  } while (width < 1)
+  // input = push.(sides);
+
+
+  triangle.stroke();
 
 }
 
@@ -190,6 +210,25 @@ function drawTriangle() {
 
 function drawSmileyFace() {
 
+  let div = document.getElementById("exercise5");
+
+  let canvas = document.getElementById("canvas5");
+  let smile = canvas.getContext("2d");
+  smile.clearRect(0, 0, canvas5.width, canvas5.height);
+
+  let radius = 0;
+
+  do{
+    radius = Number(prompt("Enter a positive radius."));
+  } while (radius < 1)
+
+  smile.beginPath();
+  smile.arc(radius + 10, radius + 10, radius, 0, 2 * Math.PI);
+  smile.stroke();
+
+  smile.beginPath();
+  smile.arc(radius + 10, radius + 10, radius * 0.7, 0, 1 * Math.PI);
+  smile.stroke();
 }
 
 /*
