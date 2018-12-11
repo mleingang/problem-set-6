@@ -137,6 +137,9 @@ function drawColoredRectangle() {
   } else if (chooseColor === "black"){
     colored.fillStyle = "#000000";
     colored.fillRect(10, 10, 100, 50);
+
+  } else if (isNaN(chooseColor == false)){
+    alert("Please enter a color.");
   }
 
 }
@@ -179,13 +182,26 @@ function drawTriangle() {
 
   let sides = [];
 
-  do {
-    input = Number(prompt("Enter your a side length."));
-  } while (width < 1)
-  // input = push.(sides);
+  for (i = 0; i < 3; i++){
+    do {
+      input = Number(prompt("Enter a side length."));
+    } while (input < 1 || isNaN(input) == true)
+      sides.push(input);
+  }
+
+  if (Math.pow(sides[0], 2) + Math.pow(sides[1], 2) == Math.pow(sides[2], 2)){
+    sides = sides.sort();
+    triangle.moveTo(10, 10);
+    triangle.moveTo(10,sides[0]);
+    triangle.moveTo(sides[1], sides[0]);
+    triangle.moveTo(10, 10);
+    triangle.stroke();
+  } else {
+    alert("Invalid right triangle. Please try again.");
+  }
 
 
-  triangle.stroke();
+  // triangle.stroke();
 
 }
 
@@ -220,7 +236,7 @@ function drawSmileyFace() {
 
   do{
     radius = Number(prompt("Enter a positive radius."));
-  } while (radius < 1)
+  } while (radius < 1 || isNaN(radius) == true)
 
   smile.beginPath();
   smile.arc(radius + 10, radius + 10, radius, 0, 2 * Math.PI);
