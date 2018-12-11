@@ -229,6 +229,14 @@ function drawSmileyFace() {
   smile.beginPath();
   smile.arc(radius + 10, radius + 10, radius * 0.7, 0, 1 * Math.PI);
   smile.stroke();
+
+  smile.beginPath();
+  smile.arc(radius - 5, radius, radius * 0.10, 0, 2 * Math.PI);
+  smile.stroke();
+
+  smile.beginPath();
+  smile.arc(radius + 25, radius, radius * 0.10, 0, 2 * Math.PI);
+  smile.stroke();
 }
 
 /*
