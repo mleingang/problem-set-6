@@ -18,7 +18,7 @@ function sayHello() {
 
   hello.font = "48px Sans-Serif";
   hello.strokeText("Hello, World!", 10, 50);
-  stroke();
+  hello.stroke();
 }
 
 /*
@@ -174,7 +174,6 @@ function drawColoredRectangle() {
  */
 
 function drawTriangle() {
-  let div = document.getElementById("exercise4");
 
   let canvas = document.getElementById("canvas4");
   let triangle = canvas.getContext("2d");
@@ -192,9 +191,9 @@ function drawTriangle() {
   if (Math.pow(sides[0], 2) + Math.pow(sides[1], 2) == Math.pow(sides[2], 2)){
     sides = sides.sort();
     triangle.moveTo(10, 10);
-    triangle.moveTo(10,sides[0]);
-    triangle.moveTo(sides[1], sides[0]);
-    triangle.moveTo(10, 10);
+    triangle.lineTo(10,sides[0]);
+    triangle.lineTo(sides[1], sides[0]);
+    triangle.lineTo(10, 10);
     triangle.stroke();
   } else {
     alert("Invalid right triangle. Please try again.");
