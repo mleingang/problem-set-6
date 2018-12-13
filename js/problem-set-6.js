@@ -225,8 +225,6 @@ function drawTriangle() {
 
 function drawSmileyFace() {
 
-  let div = document.getElementById("exercise5");
-
   let canvas = document.getElementById("canvas5");
   let smile = canvas.getContext("2d");
   smile.clearRect(0, 0, canvas5.width, canvas5.height);
@@ -292,6 +290,20 @@ function drawStar() {
  */
 
 function drawStopSign() {
+
+  let canvas = document.getElementById("canvas7");
+  let stop = canvas.getContext("2d");
+  stop.clearRect(0, 0, canvas7.width, canvas7.height);
+
+  stop.moveTo(10, 10);
+  stop.lineTo(10, 90);
+  stop.lineTo(90, 150);
+  // stop.lineTo(170, 250);
+  // stop.lineTo()
+  stop.stroke();
+
+  // stop.font = "48px Sans-Serif";
+  // stop.strokeText("Hello, World!", 10, 50);
 
 }
 
