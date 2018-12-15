@@ -295,9 +295,12 @@ function drawStopSign() {
   let stop = canvas.getContext("2d");
   stop.clearRect(0, 0, canvas7.width, canvas7.height);
 
+  let x = 10;
+  let y = 10;
+
   stop.moveTo(10, 10);
-  stop.lineTo(10, 90);
-  stop.lineTo(90, 150);
+  stop.lineTo(x, y += 70);
+  stop.lineTo(x + 70, y += 50, );
   // stop.lineTo(170, 250);
   // stop.lineTo()
   stop.stroke();
@@ -359,5 +362,44 @@ function drawPyramid() {
  */
 
 function drawHouse() {
+
+  let canvas = document.getElementById("canvas9");
+  let house = canvas.getContext("2d");
+  house.clearRect(0, 0, canvas9.width, canvas9.height);
+
+  let houseColor = prompt("What color should the house be?");
+  let roofColor = prompt("What about the door?");
+
+  /*House*/
+  house.fillStyle = houseColor;
+  house.fillRect(150, 300, 724, 450);
+  house.stroke();
+
+  /*Roof*/
+  house.moveTo(150, 300);
+  house.lineTo(512, 10);
+  house.lineTo(875, 300);
+  house.lineTo(150, 300);
+  house.fillStyle = "black";
+  house.fillStyle = "gray";
+  house.stroke();
+
+  /*Door*/
+  house.fillStyle = "black";
+  house.fillStyle = doorColor;
+  house.fillRect(463, 591, 98, 158);
+  house.stroke();
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
