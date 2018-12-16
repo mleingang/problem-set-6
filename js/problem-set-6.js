@@ -138,8 +138,8 @@ function drawColoredRectangle() {
     colored.fillStyle = "#000000";
     colored.fillRect(10, 10, 100, 50);
 
-  } else if (isNaN(chooseColor == false)){
-    alert("Please enter a color.");
+  } else {
+    alert("Your color is not supported")
   }
 
 }
@@ -377,33 +377,62 @@ function drawHouse() {
   house.clearRect(0, 0, canvas9.width, canvas9.height);
 
   let houseColor = prompt("What color should the house be?");
-  let doorColor;
-  do {
-    doorColor = prompt("What about the door?");
-  } while (doorColor == houseColor)
+  let doorColor = prompt("What about the door?");
 
-  /*House*/
-  house.fillStyle = houseColor;
-  house.fillRect(150, 300, 724, 450);
-  house.stroke();
+  if ((houseColor == "blue" || houseColor == "brown" || houseColor == "green" || houseColor == "orange" || houseColor == "purple" || houseColor == "red" || houseColor == "yellow") && (doorColor == "blue" || doorColor == "brown" || doorColor == "green" || doorColor == "orange" || doorColor == "purple" || doorColor == "red" || doorColor == "yellow")){
+    /*House*/
+    house.fillStyle = houseColor;
+    house.fillRect(150, 300, 724, 450);
+    house.stroke();
 
-  /*Roof*/
-  house.beginPath();
-  house.moveTo(150, 300);
-  house.lineTo(512, 10);
-  house.lineTo(875, 300);
-  house.lineTo(150, 300);
-  house.fillStyle = "gray";
-  house.closePath();
-  house.fill();
-  house.stroke();
+    /*Roof*/
+    house.beginPath();
+    house.moveTo(150, 300);
+    house.lineTo(512, 10);
+    house.lineTo(875, 300);
+    house.lineTo(150, 300);
+    house.fillStyle = "gray";
+    house.closePath();
+    house.fill();
+    house.stroke();
 
-  /*Door*/
-  house.fillStyle = doorColor;
-  house.fillRect(463, 591, 98, 158);
-  house.stroke();
+    /*Door*/
+    house.fillStyle = doorColor;
+    house.fillRect(463, 591, 98, 158);
+    house.stroke();
+
+    /*Door Handle*/
+    house.beginPath();
+    house.fillStyle = "yellow";
+    house.arc(545, 680, 8, 0, 2 * Math.PI);
+    house.closePath();
+    house.fill();
+    house.stroke();
 
 
+    /*Window (Top Left)*/
+    house.fillStyle = "#33ccff";
+    house.fillRect(256, 350, 100, 100);
+    house.stroke();
+
+    /*Window (Top Right)*/
+    house.fillStyle = "33ccff";
+    house.fillRect(640, 350, 100, 100);
+    house.stroke();
+
+    /*Window (Bottom Left)*/
+    house.fillStyle = "33ccff";
+    house.fillRect(256, 550, 100, 100);
+    house.stroke();
+
+    /*Window (Bottom Right)*/
+    house.fillStyle = "33ccff";
+    house.fillRect(640, 550, 100, 100);
+    house.stroke();
+
+} else {
+  alert("One of these colors is not supported.");
+}
 
 
 
