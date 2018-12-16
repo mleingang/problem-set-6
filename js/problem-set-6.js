@@ -233,7 +233,7 @@ function drawSmileyFace() {
 
   do{
     radius = Number(prompt("Enter a positive radius."));
-  } while (radius < 1 || isNaN(radius) == true)
+  } while (radius < 1 || isNaN(radius))
 
   smile.beginPath();
   smile.arc(radius + 10, radius + 10, radius, 0, 2 * Math.PI);
@@ -295,19 +295,28 @@ function drawStopSign() {
   let stop = canvas.getContext("2d");
   stop.clearRect(0, 0, canvas7.width, canvas7.height);
 
-  let x = 10;
+  let l = 80; // l = length
+  let d = l * Math.sqrt(1/2); // d = diagonal
+  let x = l - 70;
   let y = 10;
 
-  stop.moveTo(10, 10);
-  stop.lineTo(x, y += 70);
-  stop.lineTo(x + 70, y += 50, );
-  // stop.lineTo(170, 250);
-  // stop.lineTo()
-  stop.stroke();
+  stop.beginPath();
+  stop.moveTo(x, y += 60);
+  stop.lineTo(x, y += l);
+  stop.lineTo(x += d, y += d);
+  stop.lineTo(x += l, y);
+  stop.lineTo(x += d, y -= d);
+  stop.lineTo(x, y -= l);
+  stop.lineTo(x -= d, y -= d);
+  stop.lineTo(x -= l, y);
+  stop.lineTo(x -= d, y += d);
+  stop.fillStyle = "red";
+  stop.fill();
+  stop.closePath();
 
-  // stop.font = "48px Sans-Serif";
-  // stop.strokeText("Hello, World!", 10, 50);
-
+  stop.fillStyle = "white";
+  stop.font = "65px Sans-Serif";
+  stop.fillText("STOP", 18, 130);
 }
 
 /*
@@ -368,7 +377,10 @@ function drawHouse() {
   house.clearRect(0, 0, canvas9.width, canvas9.height);
 
   let houseColor = prompt("What color should the house be?");
-  let roofColor = prompt("What about the door?");
+  let doorColor;
+  do {
+    doorColor = prompt("What about the door?");
+  } while (doorColor == houseColor)
 
   /*House*/
   house.fillStyle = houseColor;
@@ -376,16 +388,17 @@ function drawHouse() {
   house.stroke();
 
   /*Roof*/
+  house.beginPath();
   house.moveTo(150, 300);
   house.lineTo(512, 10);
   house.lineTo(875, 300);
   house.lineTo(150, 300);
-  house.fillStyle = "black";
   house.fillStyle = "gray";
+  house.closePath();
+  house.fill();
   house.stroke();
 
   /*Door*/
-  house.fillStyle = "black";
   house.fillStyle = doorColor;
   house.fillRect(463, 591, 98, 158);
   house.stroke();
