@@ -348,21 +348,19 @@ function drawPyramid() {
     blockWidth = Number(prompt("Enter a block width."));
   } while (blockWidth < 0 || isNaN(blockWidth) == true || blockWidth > 100)
 
-  // pyramid.strokeStyle = "black";
-  // pyramid.rect(10, 20, 150, 100);
-  // pyramid.stroke();
-  //pyramid.fill();
   let xOffset = 0;
   let yOffset = 0;
+  let i;
+  let i2;
 
-  for (let i = 0; i < 5; i++){
-    for (let i2 = 0; i2 < 5 - i; i2++){
+  for (i = 0; i < 5; i++){
+    for (i2 = 0; i2 < 5 - i; i2++){
       pyramid.rect(10 + xOffset, canvas8.height - (blockWidth + 10 + yOffset), blockWidth, blockWidth);
       pyramid.stroke();
       xOffset = xOffset + blockWidth;
     }
+    xOffset = blockWidth*i/2 + blockWidth/2;
     yOffset = yOffset + (blockWidth);
-    pyramid.moveTo(x + (blockWidth/2), y);
   }
 }
 
