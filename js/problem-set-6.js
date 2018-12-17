@@ -199,9 +199,6 @@ function drawTriangle() {
     alert("Invalid right triangle. Please try again.");
   }
 
-
-  // triangle.stroke();
-
 }
 
 /*
@@ -339,7 +336,36 @@ function drawStopSign() {
 
 function drawPyramid() {
 
+  let canvas8 = document.getElementById("canvas8");
+  let pyramid = canvas8.getContext("2d");
+  pyramid.clearRect(0, 0, canvas8.width, canvas8.height);
+
+  let x = 10;
+  let y = 502;
+  let blockWidth;
+
+  do{
+    blockWidth = Number(prompt("Enter a block width."));
+  } while (blockWidth < 0 || isNaN(blockWidth) == true || blockWidth > 100)
+
+  // pyramid.strokeStyle = "black";
+  // pyramid.rect(10, 20, 150, 100);
+  // pyramid.stroke();
+  //pyramid.fill();
+  let xOffset = 0;
+  let yOffset = 0;
+
+  for (let i = 0; i < 5; i++){
+    for (let i2 = 0; i2 < 5 - i; i2++){
+      pyramid.rect(10 + xOffset, canvas8.height - (blockWidth + 10 + yOffset), blockWidth, blockWidth);
+      pyramid.stroke();
+      xOffset = xOffset + blockWidth;
+    }
+    yOffset = yOffset + (blockWidth);
+    pyramid.moveTo(x + (blockWidth/2), y);
+  }
 }
+
 
 /*
  * House. 7 points.
