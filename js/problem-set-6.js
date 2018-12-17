@@ -269,6 +269,32 @@ function drawSmileyFace() {
 
 function drawStar() {
 
+  let canvas = document.getElementById("canvas6");
+  let star = canvas.getContext("2d");
+  star.clearRect(0, 0, canvas6.width, canvas6.height);
+
+  let outerRadius;
+  let innerRadius;
+  let degrees = 0;
+
+  do {
+    outerRadius = Number(prompt("Enter the outer radius."));
+  } while (outerRadius < 0 || isNaN(outerRadius) == true)
+
+  do {
+    innerRadius = Number(prompt("Enter the inner radius."));
+  } while (innerRadius < 0 || isNaN(innerRadius) == true || innerRadius > outerRadius)
+
+  star.beginPath();
+  star.moveTo(125,125-outerRadius);
+    for (let i=0; i<=5; i++){
+      star.lineTo(125+Math.round((Math.cos(Math.PI*(degrees-90)/180)*outerRadius)), 125+Math.round((Math.sin(Math.PI*(degrees-90)/180)*outerRadius)));
+      degrees +=36;
+      star.lineTo(125+Math.round((Math.cos(Math.PI*(degrees-90)/180)*innerRadius)), 125+Math.round((Math.sin(Math.PI*(degrees-90)/180)*innerRadius)));
+      degrees +=36;
+    }
+    star.stroke();
+    star.closePath();
 }
 
 /*
